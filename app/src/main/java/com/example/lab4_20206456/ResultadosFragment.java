@@ -1,13 +1,21 @@
 package com.example.lab4_20206456;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,13 +43,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Use the {@link ResultadosFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ResultadosFragment extends Fragment {
+public class ResultadosFragment extends Fragment implements SensorEventListener {
 
     private RecyclerView recyclerViewResultados;
     private ResultAdapter resultadosAdapter;
     private List<Result> resultadosList = new ArrayList<>();
     private EditText edtIdLiga, edtTemporada, edtRonda;
     private Button btnBuscarResultados;
+
+
+    // Parte SENSOR
+    private SensorManager sensorManager;
+    private Sensor accelerometer;
+    private boolean isDialogOpen = false;
+    private static final float SHAKE_THRESHOLD = 20.0f;
+    private static final int SHAKE_WAIT_TIME_MS = 500;
+    private long mShakeTime = 0;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,15 +89,6 @@ public class ResultadosFragment extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Nullable
@@ -161,5 +169,83 @@ public class ResultadosFragment extends Fragment {
                 Toast.makeText(getContext(), "No se encontraron resultados", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // Inicializar el sensor de acelerómetro
+        sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
+        if (sensorManager != null) {
+            accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (accelerometer != null) {
+            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        sensorManager.unregisterListener(this);
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        float x = event.values[0];
+        float y = event.values[1];
+        float z = event.values[2];
+
+        float acceleration = (float) Math.sqrt(x * x + y * y + z * z);
+
+        if (acceleration > SHAKE_THRESHOLD) {
+            long currentTime = System.currentTimeMillis();
+            if (currentTime - mShakeTime > SHAKE_WAIT_TIME_MS && !isDialogOpen) {
+                mShakeTime = currentTime;
+                onShakeDetected();
+            }
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    }
+
+    // Al sacudir
+    private void onShakeDetected() {
+        Vibrator vibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+        if (vibrator != null) {
+            vibrator.vibrate(VibrationEffect.createOneShot(300, VibrationEffect.DEFAULT_AMPLITUDE));
+        }
+        mostrarDialogoConfirmacion();
+    }
+
+    private void mostrarDialogoConfirmacion() {
+        isDialogOpen = true;
+        new AlertDialog.Builder(getContext())
+                .setTitle("Confirmación")
+                .setMessage("¿Desea deshacer la última acción y eliminar el último resultado obtenido?")
+                .setPositiveButton("Sí", (dialog, which) -> {
+                    if (!resultadosList.isEmpty()) {
+                        resultadosList.remove(resultadosList.size() - 1);
+                        resultadosAdapter.notifyDataSetChanged();
+                        Toast.makeText(getContext(), "Último resultado eliminado", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getContext(), "No hay resultados para eliminar", Toast.LENGTH_SHORT).show();
+                    }
+                    isDialogOpen = false;
+                })
+                .setNegativeButton("No", (dialog, which) -> {
+                    dialog.dismiss();
+                    isDialogOpen = false;
+                })
+                .setOnCancelListener(dialog -> isDialogOpen = false)
+                .show();
     }
 }

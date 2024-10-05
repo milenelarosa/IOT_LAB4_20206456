@@ -65,8 +65,8 @@ public class StandingAdapter extends RecyclerView.Adapter<StandingAdapter.Standi
         public void bind(Standing standing) {
             teamNameTextView.setText(standing.getStrTeam());
             rankTextView.setText("Rank: " + standing.getIntRank());
-            recordTextView.setText("W/D/L: " + standing.getIntWin() + "/" + standing.getIntDraw() + "/" + standing.getIntLoss());
-            goalsTextView.setText("GF/GA/GD: " + standing.getIntGoalsFor() + "/" + standing.getIntGoalsAgainst() + "/" + standing.getIntGoalDifference());
+            recordTextView.setText("V/E/D: " + standing.getIntWin() + "/" + standing.getIntDraw() + "/" + standing.getIntLoss());
+            goalsTextView.setText("GA/GC/DG: " + standing.getIntGoalsFor() + "/" + standing.getIntGoalsAgainst() + "/" + standing.getIntGoalDifference());
 
             // Para cargar la imagen del badge
             Glide.with(badgeImageView.getContext())

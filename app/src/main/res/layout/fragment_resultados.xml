@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Posiciones de Liga"
+        android:text="Resultados de los Partidos"
         android:textColor="@color/md_theme_primaryFixedDim_highContrast"
         android:textSize="24sp"
         android:paddingBottom="20dp"
