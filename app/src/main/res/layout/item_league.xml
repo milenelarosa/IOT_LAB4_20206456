@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:paddingBottom="12dp">
+
+    <LinearLayout
+        android:id="@+id/newpedido1"
+        android:layout_width="358dp"
+        android:layout_height="99dp"
+        android:background="@drawable/border_item"
+        android:backgroundTint="#F6F2C8"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.189">
+
+        <TextView
+            android:id="@+id/leagueNameTextView"
+            android:layout_width="322dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_item"
+            android:backgroundTint="#EDE7F6"
+            android:text="League Name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/alternateNameTextView"
+            android:layout_width="322dp"
+            android:layout_height="30dp"
+            android:paddingTop="5dp"
+            android:text="Alternate Name"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/leagueNameTextView" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,15 +5,77 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_inicio"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="375dp"
+        android:layout_height="440dp"
+        android:layout_marginBottom="176dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:layout_width="365dp"
+            android:layout_height="339dp"
+            android:src="@drawable/logomain" />
+
+        <Button
+            android:id="@+id/btnIngresar"
+            android:layout_width="177dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="30dp"
+            android:text="Ingresar"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="328dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/fondotitle"
+        android:gravity="center"
+        android:text="Tele-Fútbol"
+        android:textColor="@color/md_theme_primaryFixedDim_highContrast"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.781" />
+
+    <TextView
+        android:layout_width="292dp"
+        android:layout_height="39dp"
+        android:gravity="center"
+        android:text="Elaborado por: Aracelli La Rosa 20206456"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.969" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="293dp"
+        android:layout_height="83dp"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.945"
+        app:srcCompat="@drawable/telito" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

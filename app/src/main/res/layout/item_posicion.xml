@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="112dp"
+        android:background="@drawable/background_inicio"
+        android:backgroundTint="#E8EAF6"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/badgeImageView"
+            android:layout_width="56dp"
+            android:layout_height="52dp"
+
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+
+        <LinearLayout
+            android:layout_width="275dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/teamNameTextView"
+                android:layout_width="258dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_item"
+                android:backgroundTint="#F1CCF6"
+                android:text="Team Name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rankTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rank"
+                android:textColor="@color/md_theme_tertiaryFixed_highContrast"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/recordTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="W/D/L"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/goalsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GF/GA/GD"
+                android:textColor="@color/md_theme_primaryFixed_highContrast"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

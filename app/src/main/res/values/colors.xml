@@ -2,4 +2,20 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="md_theme_inverseOnSurface_highContrast">#FFFFFF</color>
+    <color name="md_theme_inversePrimary_highContrast">#E5ECFF</color>
+    <color name="md_theme_primaryFixed_highContrast">#234373</color>
+    <color name="md_theme_onPrimaryFixed_highContrast">#FFFFFF</color>
+    <color name="md_theme_primaryFixedDim_highContrast">#042C5B</color>
+    <color name="md_theme_onPrimaryFixedVariant_highContrast">#FFFFFF</color>
+    <color name="md_theme_secondaryFixed_highContrast">#3A4354</color>
+    <color name="md_theme_onSecondaryFixed_highContrast">#FFFFFF</color>
+    <color name="md_theme_secondaryFixedDim_highContrast">#242D3D</color>
+    <color name="md_theme_onSecondaryFixedVariant_highContrast">#FFFFFF</color>
+    <color name="md_theme_tertiaryFixed_highContrast">#523A58</color>
+    <color name="md_theme_onTertiaryFixed_highContrast">#FFFFFF</color>
+    <color name="md_theme_tertiaryFixedDim_highContrast">#3B2440</color>
+    <color name="md_theme_onTertiaryFixedVariant_highContrast">#FFFFFF</color>
+    <color name="md_theme_surfaceDim_highContrast">#D9D9E0</color>
+    <color name="md_theme_surfaceBright_highContrast">#F9F9FF</color>
 </resources>
