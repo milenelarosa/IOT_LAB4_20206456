@@ -8,10 +8,10 @@ android:paddingBottom="12dp">
 
     <LinearLayout
         android:id="@+id/newpedido1"
-        android:layout_width="358dp"
-        android:layout_height="99dp"
+        android:layout_width="356dp"
+        android:layout_height="133dp"
         android:background="@drawable/border_item"
-        android:backgroundTint="#F6F2C8"
+        android:backgroundTint="#FBECD1"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:padding="16dp"
@@ -23,11 +23,28 @@ android:paddingBottom="12dp">
         app:layout_constraintVertical_bias="0.189">
 
         <TextView
+            android:id="@+id/idLeague"
+            android:layout_width="322dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#F7DCFB"
+            android:text="ID"
+            android:textColor="#15661B"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <TextView
             android:id="@+id/leagueNameTextView"
             android:layout_width="322dp"
             android:layout_height="wrap_content"
             android:background="@drawable/border_item"
-            android:backgroundTint="#EDE7F6"
+            android:backgroundTint="#F7DCFB"
             android:text="League Name"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -35,10 +52,17 @@ android:paddingBottom="12dp">
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
         <TextView
             android:id="@+id/alternateNameTextView"
             android:layout_width="322dp"
             android:layout_height="30dp"
+            android:background="@drawable/border_item"
+            android:backgroundTint="@color/white"
+            android:paddingStart="5dp"
             android:paddingTop="5dp"
             android:text="Alternate Name"
             android:textStyle="bold"

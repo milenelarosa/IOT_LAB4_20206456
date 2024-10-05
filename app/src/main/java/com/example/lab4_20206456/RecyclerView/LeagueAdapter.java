@@ -48,15 +48,17 @@ public class LeagueAdapter extends RecyclerView.Adapter<LeagueAdapter.LeagueView
     }
 
     class LeagueViewHolder extends RecyclerView.ViewHolder {
-        TextView leagueNameTextView, alternateNameTextView;
+        TextView leagueNameTextView, alternateNameTextView, leagueId;
 
         public LeagueViewHolder(@NonNull View itemView) {
             super(itemView);
+            leagueId = itemView.findViewById(R.id.idLeague);
             leagueNameTextView = itemView.findViewById(R.id.leagueNameTextView);
             alternateNameTextView = itemView.findViewById(R.id.alternateNameTextView);
         }
 
         public void bind(League league) {
+            leagueId.setText("ID " + league.getIdLeague());
             leagueNameTextView.setText(league.getStrLeague());
             alternateNameTextView.setText(league.getStrLeagueAlternate());
         }

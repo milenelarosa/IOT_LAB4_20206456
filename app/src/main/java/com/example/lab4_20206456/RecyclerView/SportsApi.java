@@ -14,4 +14,7 @@ public interface SportsApi {
 
     @GET("api/v1/json/3/lookuptable.php")
     Call<StandingResponse> getLeagueStandings(@Query("l") String leagueId, @Query("s") String season);
+
+    @GET("api/v1/json/3/eventsround.php")
+    Call<ResultResponse> getLeagueResults(@Query("id") String leagueId, @Query("r") String round, @Query("s") String season);
 }

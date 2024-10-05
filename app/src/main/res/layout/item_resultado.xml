@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="207dp"
+        android:background="@drawable/background_inicio"
+        android:backgroundTint="#E8F5E9"
+        android:orientation="horizontal"
+        android:paddingStart="15dp"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgLogoCompetencia"
+            android:layout_width="81dp"
+            android:layout_height="136dp"
+            android:layout_gravity="center"
+            android:layout_margin="3dp" />
+
+        <LinearLayout
+            android:layout_width="275dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNombreCompetencia"
+                android:layout_width="238dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_item"
+                android:backgroundTint="#D2F3F8"
+                android:text="Nombre de la competencia"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtRonda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ronda"
+                android:textColor="@color/md_theme_tertiaryFixed_highContrast"
+                android:textStyle="bold" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+
+            <TextView
+                android:id="@+id/txtEquipoLocal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FDF9D3"
+                android:text="Equipo local"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+
+            <TextView
+                android:id="@+id/txtEquipoVisitante"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Equipo visitante"
+                android:background="#FDF9D3"
+                android:textStyle="bold" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+
+            <TextView
+                android:id="@+id/txtResultado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_item"
+                android:text="Resultado"
+                android:backgroundTint="#BFF4CA"
+                android:textColor="@color/md_theme_primaryFixed_highContrast"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+
+            <TextView
+                android:id="@+id/txtFecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:text="Fecha"
+                android:textColor="@color/md_theme_primaryFixed_highContrast"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="4dp" />
+
+            <TextView
+                android:id="@+id/txtEspectadores"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cant Espectadores"
+                android:background="@color/white"
+                android:textColor="@color/md_theme_primaryFixed_highContrast"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
