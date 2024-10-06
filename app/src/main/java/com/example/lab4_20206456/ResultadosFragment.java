@@ -230,15 +230,18 @@ public class ResultadosFragment extends Fragment implements SensorEventListener 
         isDialogOpen = true;
         new AlertDialog.Builder(getContext())
                 .setTitle("Confirmación")
-                .setMessage("¿Desea deshacer la última acción y eliminar el último resultado obtenido?")
+                .setMessage("¿Desea eliminar el último resultado obtenido?")
                 .setPositiveButton("Sí", (dialog, which) -> {
                     if (!resultadosList.isEmpty()) {
-                        resultadosList.remove(resultadosList.size() - 1);
-                        resultadosAdapter.notifyDataSetChanged();
+                        int lastIndex = resultadosList.size() - 1;
+                        resultadosList.remove(lastIndex);
+                        resultadosAdapter.notifyItemRemoved(lastIndex);
+                        resultadosAdapter.notifyItemRangeChanged(lastIndex, resultadosList.size());
                         Toast.makeText(getContext(), "Último resultado eliminado", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getContext(), "No hay resultados para eliminar", Toast.LENGTH_SHORT).show();
                     }
+
                     isDialogOpen = false;
                 })
                 .setNegativeButton("No", (dialog, which) -> {

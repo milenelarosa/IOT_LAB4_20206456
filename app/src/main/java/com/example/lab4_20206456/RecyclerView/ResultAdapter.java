@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.lab4_20206456.R;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ResultadosViewHolder> {
 
@@ -45,9 +46,11 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.Resultados
     }
 
     public void updateResults(List<Result> newResults) {
-        resultadosList = newResults;
+        resultadosList.clear();
+        resultadosList.addAll(newResults);
         notifyDataSetChanged();
     }
+
 
     public static class ResultadosViewHolder extends RecyclerView.ViewHolder {
         TextView txtNombreCompetencia, txtRonda, txtEquipoLocal, txtEquipoVisitante, txtResultado, txtFecha, txtEspectadores;
@@ -70,9 +73,13 @@ public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.Resultados
             txtRonda.setText("Ronda: " +result.getIntRound());
             txtEquipoLocal.setText("Local: " + result.getStrHomeTeam());
             txtEquipoVisitante.setText("Visitante: " + result.getStrAwayTeam());
-            txtResultado.setText("Resultado: " + result.getStrResult());
+
+            String resultado = Objects.equals(result.getStrResult(), "") ? "Por definir" : result.getStrResult();
+            txtResultado.setText("Resultado: " + resultado);
             txtFecha.setText("Fecha: " +result.getDateEvent());
-            txtEspectadores.setText(result.getIntSpectators()+ " espectadores");
+
+            String espectadores = result.getIntSpectators() != null ? result.getIntSpectators() : "0";
+            txtEspectadores.setText(espectadores + " espectadores");
 
             // Para cargar la imagen del badge
             Glide.with(imgLogoCompetencia.getContext())

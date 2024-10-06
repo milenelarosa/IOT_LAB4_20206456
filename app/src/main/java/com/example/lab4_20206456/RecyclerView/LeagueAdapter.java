@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lab4_20206456.R;
 
 import java.util.List;
+import java.util.Objects;
 
 public class LeagueAdapter extends RecyclerView.Adapter<LeagueAdapter.LeagueViewHolder> {
 
@@ -60,7 +61,8 @@ public class LeagueAdapter extends RecyclerView.Adapter<LeagueAdapter.LeagueView
         public void bind(League league) {
             leagueId.setText("ID " + league.getIdLeague());
             leagueNameTextView.setText(league.getStrLeague());
-            alternateNameTextView.setText(league.getStrLeagueAlternate());
+            String nombreAlternativo = Objects.equals(league.getStrLeagueAlternate(), "") ? "N/A" : league.getStrLeagueAlternate();
+            alternateNameTextView.setText(nombreAlternativo);
         }
     }
 }

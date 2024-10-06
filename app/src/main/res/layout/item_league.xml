@@ -59,7 +59,7 @@ android:paddingBottom="12dp">
         <TextView
             android:id="@+id/alternateNameTextView"
             android:layout_width="322dp"
-            android:layout_height="30dp"
+            android:layout_height="32dp"
             android:background="@drawable/border_item"
             android:backgroundTint="@color/white"
             android:paddingStart="5dp"
